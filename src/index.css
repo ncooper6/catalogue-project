@@ -1,0 +1,611 @@
+/*
+====================================================================================== 
+Variables
+======================================================================================
+*/
+
+:root {
+  /* colour variables */
+  --clr-uclan-blue: hsl(197, 100%, 35%);
+  --clr-white: #fff;
+  --clr-black: #222;
+  --clr-grey-1: #a8a8a8;
+  --border-main: 1px #c9c9c9 solid;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============================================================================== 
+Global Styles
+===============================================================================
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-black);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+/* ======== NavBar =============================================================== */
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 7.5%;
+  background-color: #f3f3f3;
+}
+
+.nav-r {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-r-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-r-inner button {
+  font-size: 1.25rem;
+  color: #f3f3f3;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background-color: #be1622;
+  border-top-right-radius: 7.5px;
+  border-bottom-right-radius: 7.5px;
+  margin-right: 10%;
+}
+
+.nav-r-inner button:hover {
+  cursor: pointer;
+}
+
+.nav-r-inner input {
+  border: var(--border-main);
+  border-top-left-radius: 7.5px;
+  border-bottom-left-radius: 7.5px;
+  height: 45px;
+  width: 15rem;
+  padding-left: 1rem;
+}
+
+.links a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.15rem;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  display: block;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.links li {
+  padding: 1rem 2.5rem;
+}
+
+.links li span {
+  font-size: 1rem;
+}
+
+.links a:hover {
+  color: var(--clr-uclan-blue);
+  padding-left: 1.5rem;
+}
+/* ========================================================================== */
+/* ======== Main Page Flex ================================================================ */
+.home-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+/* ===================================================================================== */
+/* ========= SIDE NAV ==================================================================== */
+.sideNav {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 15%;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  height: 100%;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 2rem 0;
+  color: #000;
+}
+
+.categoryContainer h3 {
+  margin-left: 2.5rem;
+}
+
+.categoryContainer button {
+  background-color: #f3f3f3;
+  border: none;
+  color: #000;
+  font-size: 1.15rem;
+  text-align: left;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 3rem;
+  font-weight: 300;
+}
+
+.categoryContainer button:hover {
+  cursor: pointer;
+  color: var(--clr-uclan-blue);
+}
+
+.categoryContainer button:focus {
+  color: red;
+  border: none;
+}
+/* ======================================================================== */
+/* ======== Catalogue ==================================================== */
+.catalogueWrapper {
+  width: 80%;
+  margin: 2.5% 0;
+}
+
+.catalogueGrid {
+  display: grid;
+  grid-template-columns: [col-1-str] 1fr [col-2-str] 1fr [col-3-str] 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.productCard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #f3f3f3;
+  border: var(--border-main);
+}
+
+.productCard img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  margin-bottom: 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  background-color: var(--clr-uclan-blue);
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: var(--clr-uclan-blue);
+  border: 1px solid var(--clr-uclan-blue);
+}
+
+.btn-white {
+  margin-bottom: 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  color: var(--clr-uclan-blue);
+  text-transform: uppercase;
+  background-color: #fff;
+}
+
+.btn-white:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--clr-uclan-blue);
+  border: 1px solid #fff;
+}
+
+.card-btn-wrapper {
+  width: 100%;
+}
+
+.authBtn {
+  margin-left: 50px;
+}
+
+.inStock {
+  color: green;
+}
+
+.noStock {
+  color: red;
+}
+/* ======================================================================= */
+/* ==== ADMIN ======= ===========================================*/
+.adminEditContainer {
+  background-color: #f3f3f3;
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: var(--border-main);
+  margin-top: 2rem;
+}
+
+.adminEditContainer form,
+h3 {
+  margin: auto auto;
+  text-align: center;
+}
+/* ======================================================================= */
+/* ==== PRODUCTS ======= ===========================================*/
+.product-single {
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+  margin: 4rem auto;
+  padding: 2rem 0;
+  background-color: #f3f3f3;
+  border: var(--border-main);
+  border-radius: 10px;
+}
+
+.product-single img {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  border: var(--border-main);
+  border-radius: 10px;
+}
+
+.product-info h2 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.product-info p {
+  width: 450px;
+  height: 210px;
+  line-height: 1.25;
+  padding-top: 0.75rem;
+}
+
+.product-info a {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%;
+  bottom: 0;
+}
+
+.img-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.stockCount {
+  background-color: #fff;
+  border: var(--border-main);
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem;
+  margin-top: 1rem;
+}
+
+#amount {
+  border-radius: 10px;
+  border: none;
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  font-size: 14px;
+  background-color: #f3f3f3;
+}
+
+input[type="date"] {
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 14px;
+  font-family: "Arial";
+  background-color: #f3f3f3;
+}
+
+.form-btn {
+  background-color: var(--clr-uclan-blue);
+  color: var(--clr-white);
+  text-transform: uppercase;
+  display: block;
+  margin: 2rem auto 0 auto;
+  border: 1px solid var(--clr-uclan-blue);
+  border-radius: 25px;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+.form-btn:hover {
+  background-color: var(--clr-white);
+  color: var(--clr-uclan-blue);
+  cursor: pointer;
+}
+/* ============================ INDIVIDUAL PRODUCT ============================================================*/
+.booking-wrapper {
+  background-color: var(--clr-white);
+  border: var(--border-main);
+  border-radius: 10px;
+  padding: 1rem;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 2rem auto 0 auto;
+}
+
+.booking-content-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.booking-panel-wrap {
+  margin: 1.5rem auto 0 auto;
+  background-color: var(--clr-uclan-blue);
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.booking-panel-wrap form {
+  text-align: center;
+}
+.booking-panel-wrap button {
+  margin-top: 1rem;
+  width: 50%;
+}
+
+.booking-content {
+  padding: 1rem;
+  background-color: #f3f3f3;
+  border: var(--border-main);
+  border-radius: var(--radius);
+  width: 60%;
+}
+
+.booking-image {
+  justify-content: flex-end;
+}
+
+.booking-image img {
+  width: 400px;
+  height: 400px;
+}
+
+/* ====================================================================================== */
+/* =================EDIT CONTAINER======================================================================= */
+
+.editContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.5rem;
+  background-color: #f3f3f3;
+  padding: 40px;
+  border-radius: 20px;
+
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-form label {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+/* =============================================================================================== */
+/* =========================== RENTALS ======================== */
+.rentalContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rentalGrid {
+  display: flex;
+  width: 50%;
+  text-align: center;
+  margin: 1rem;
+}
+
+.rentalItem {
+  width: 25%;
+  flex: 1;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.rentalItem div {
+  flex: 1;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+/* ===================================================================== */
+/* ===================== Login Redirect ==================================== */
+
+.redirect-box {
+  background-color: #f3f3f3;
+  width: 30%;
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem auto 0 auto;
+  border: var(--border-main);
+  border-radius: var(--radius);
+}
+/* =============================================================================================== */
+/* ============ Media queries =============================================================== */
+@media only screen and (max-width: 1550px) {
+  .categoryContainer {
+    margin-left: 0;
+  }
+
+  .categoryContainer button {
+    margin-left: 0;
+    padding-left: 1.5rem;
+  }
+}
+@media only screen and (max-width: 1375px) {
+  .nav-c {
+    width: 500px;
+  }
+
+  .links a {
+    font-size: 1rem;
+  }
+
+  .links li {
+    padding: 0.5rem 1rem;
+  }
+}
+@media only screen and (max-width: 1210px) {
+  .categoryContainer button {
+    margin-left: 0;
+    padding-left: 1rem;
+  }
+
+  .catalogueGrid {
+    grid-template-columns: [col-1-str] 1fr [col-2-str] 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .catalogueGrid {
+    grid-template-columns: [col-1-str] 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .categoryContainer h3 {
+    margin-left: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .categoryContainer h3 {
+    margin-left: 1rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  .nav-header {
+    padding: 0;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .links-container {
+    height: auto !important;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+  }
+  .links a {
+    padding: 0;
+    margin: 0 0.5rem;
+  }
+  .links a:hover {
+    padding: 0;
+    background: transparent;
+  }
+}
+/* ====================================================================================== */
